@@ -1,0 +1,6 @@
+# Commands that never run on the Mac: R only runs in the container (bin/r.sh).
+R
+Rscript
+air
+chromium
+google-chrome

@@ -1,0 +1,7 @@
+# Generated documentation (docs-build/build.sh)
+*.html
+!docs-build/template.html
+docs-build/.cache/
+
+# macOS
+.DS_Store

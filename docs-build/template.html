@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$pagetitle$</title>
+<style>
+:root {
+  --bg: #ffffff; --surface: #f6f7f9; --border: #d9dde3; --text: #1f2933;
+  --muted: #5b6673; --accent: #1d4ed8; --code-bg: #f1f3f6; --mark: #fde68a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171c; --surface: #1b1f26; --border: #2e3540; --text: #e3e7ec;
+    --muted: #9aa5b1; --accent: #7aa7ff; --code-bg: #1f242c; --mark: #6b5310;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171c; --surface: #1b1f26; --border: #2e3540; --text: #e3e7ec;
+  --muted: #9aa5b1; --accent: #7aa7ff; --code-bg: #1f242c; --mark: #6b5310;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+.layout { display: grid; grid-template-columns: 1fr; max-width: 1180px; margin: 0 auto; }
+nav#TOC {
+  padding: 16px; border-bottom: 1px solid var(--border); background: var(--surface);
+  font-size: 14px;
+}
+nav#TOC ul { list-style: none; margin: 0; padding-left: 0; }
+nav#TOC ul ul { padding-left: 14px; }
+nav#TOC li { margin: 3px 0; }
+nav#TOC a { color: var(--muted); text-decoration: none; }
+nav#TOC a:hover { color: var(--accent); }
+main { padding: 16px; min-width: 0; }
+@media (min-width: 960px) {
+  .layout { grid-template-columns: 260px minmax(0, 1fr); gap: 32px; }
+  nav#TOC {
+    position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto;
+    border-bottom: 0; border-right: 1px solid var(--border); padding: 24px 16px;
+  }
+  main { padding: 32px 16px 64px; }
+}
+h1, h2, h3 { line-height: 1.25; }
+h1 { font-size: 1.9rem; margin-top: 0; }
+h2 { font-size: 1.4rem; margin-top: 2.2em; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.12rem; margin-top: 1.8em; }
+a { color: var(--accent); }
+blockquote {
+  margin: 1em 0; padding: 8px 16px; border-left: 4px solid var(--accent);
+  background: var(--surface); color: var(--muted);
+}
+code {
+  font: 0.88em/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: var(--code-bg); padding: 1px 5px; border-radius: 4px;
+}
+pre {
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px;
+  padding: 12px 14px; overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+table {
+  display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse;
+  margin: 1em 0; font-size: 0.94rem;
+}
+th, td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; vertical-align: top; }
+th { background: var(--surface); }
+.diagram {
+  margin: 1.2em 0; padding: 12px; border: 1px solid var(--border); border-radius: 8px;
+  background: var(--surface); overflow-x: auto;
+}
+.diagram pre.mermaid { margin: 0; padding: 0; border: 0; background: none; text-align: center; }
+</style>
+</head>
+<body>
+<div class="layout">
+$if(toc)$
+<nav id="TOC" aria-label="Contents">
+$table-of-contents$
+</nav>
+$endif$
+<main>
+$body$
+</main>
+</div>
+<script src="$mermaid_url$"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    securityLevel: "strict",
+    theme: window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "default",
+    flowchart: { useMaxWidth: true },
+    sequence: { useMaxWidth: true, actorMargin: 24, messageFontSize: 15, actorFontSize: 14, wrap: true, width: 130 },
+    state: { useMaxWidth: true }
+  });
+</script>
+</body>
+</html>

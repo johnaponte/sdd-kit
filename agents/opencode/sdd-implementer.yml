@@ -1,0 +1,8 @@
+mode: subagent
+permissions:
+  - { action: edit, resource: "*", effect: deny }
+  - { action: edit, resource: "app/**", effect: allow }
+  - { action: edit, resource: "specs/*/tasks.md", effect: allow }
+  - { action: edit, resource: "MEMORY.md", effect: allow }
+  - { action: webfetch, resource: "*", effect: deny }
+  - { action: subagent, resource: "*", effect: deny }

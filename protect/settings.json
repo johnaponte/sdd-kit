@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(./.claude/**)",
+      "Edit(./.opencode/**)",
+      "Edit(./.agents/**)",
+      "Edit(./.codex/**)",
+      "Edit(./opencode.json)",
+      "Edit(./.mcp.json)",
+      "Edit(./bin/**)",
+      "Edit(./docs/constitution.md)",
+      "Edit(./AGENTS.md)",
+      "Edit(./CLAUDE.md)",
+      "Bash(chflags *)",
+      "Bash(chmod *)",
+      "Bash(chown *)",
+      "Bash(xattr *)",
+      "Bash(sudo *)",
+      "Bash(docker *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(gh *)",
+      "Bash(podman *)"
+    ],
+    "allow": [
+      "Bash"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/protect.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
