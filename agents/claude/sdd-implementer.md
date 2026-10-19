@@ -13,6 +13,11 @@ blocks everything else).
   `docs/constitution.md`, `AGENTS.md`, the `sdd` skill and the stack skill (in
   `.claude/skills/` or `.agents/skills/`).
 - Implement ONLY that task: tests first (and check that they fail), then the code.
+- Follow the "Code discipline" section of the `sdd` skill: if anything in the task is
+  ambiguous, STOP and ask; write the minimum code that makes the tests pass; change only the
+  lines the task needs (no unrelated refactoring, reformatting or renaming).
+- Before finishing, read your own `git diff`: every changed line must be justified by the task
+  or its FRs. Revert whatever is not (only your own changes, never the user's).
 - Run everything with the commands in `AGENTS.md` (the scripts in `bin/`), never with system
   tools.
 - Finish with the `AGENTS.md` check (e.g. `bin/check.sh`) in OK. Never call a task done while
@@ -29,5 +34,5 @@ blocks everything else).
 1. Task completed and the FRs it covers.
 2. Files changed.
 3. Result of the `AGENTS.md` check (last line, e.g. `CHECK: OK`).
-4. Any decision the plan did not cover.
+4. Any decision the plan did not cover, and anything you noticed but did not touch.
 5. If the stack skill asks for it, the teaching explanation.

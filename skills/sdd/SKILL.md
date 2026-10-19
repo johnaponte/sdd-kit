@@ -21,6 +21,18 @@ Validation → Change (back to Spec).
 - Exception: small changes the user asks for with `/sdd-feature` (one task, no new spec).
   Never decide on your own that something is "small" to skip the flow.
 
+## Code discipline
+- **Don't assume.** If a requirement, task or detail is ambiguous or missing, stop and ask.
+  Never fill the gap with a guess.
+- **Minimum code.** Write the simplest code that makes the task's tests pass. No extra
+  features, options, abstractions, configuration or error handling that the task and its FRs do
+  not require.
+- **Touch only what you must.** Change only the lines the task needs: no unrelated refactoring,
+  reformatting, renaming or clean-up, even in files you are editing. If you notice something
+  else (a bug, dead code, a better design), report it; do not fix it.
+- **Success criteria.** Know how the task will be judged before writing code: its tests and its
+  "Done when:". If it cannot be verified, stop and ask.
+
 ## Changes you did not make
 The user also edits the code by hand. If, while reading the code, you find something that does
 not match the plan, the tasks or what you did before:

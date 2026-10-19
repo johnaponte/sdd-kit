@@ -229,6 +229,13 @@ rules generation in `install.sh`. Add cases to `tests/test-protect.sh`.
 **Method phases**: `skills/sdd/SKILL.md` (flow), the matching command, the templates and the
 table in USAGE.md.
 
+**Code discipline** (don't assume, minimum code, touch only what you must, success criteria):
+the rules live in `skills/sdd/SKILL.md` ("Code discipline"), the single source for the three
+tools. `agents/claude/sdd-implementer.md` and `commands/sdd-implement.md` / `sdd-feature.md`
+point to it (OpenCode agents are generated from the Claude ones, and Codex skills from the
+commands, so nothing else needs editing); the check is in `agents/claude/sdd-reviewer.md` and
+`commands/sdd-validate.md` (phase 1). Documented in USAGE.md ("The method").
+
 ## Compatibility rules
 
 - **Commands**: valid in Claude Code and OpenCode, and convertible into Codex skills. Front

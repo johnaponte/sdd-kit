@@ -14,6 +14,8 @@ Use the sdd skill (and the stack skill, if there is one). Read `docs/constitutio
    behaviour. If the change alters it, it is `/sdd-change <spec> …`: stop and say so.
 3. **Short plan** (no edits yet): which files you would touch, which test you would write,
    edge cases and questions I need to decide. Wait for my approval.
+   Follow the "Code discipline" section of the sdd skill: do not assume, write the minimum
+   code, touch only what the change needs.
 4. **With my approval**: tests first (and check that they fail), then the code, and the
    `AGENTS.md` check (e.g. `bin/check.sh`) green. You may only edit the product folder and
    `MEMORY.md`.

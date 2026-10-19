@@ -22,6 +22,9 @@ not propose solutions. Format: numbered list.
    can check yourself (generated files, PNG images, screenshots with the profile's script),
    check it.
 4. Check the completion criteria and the constitution.
+5. Check the code discipline (`sdd` skill): in `git diff`, flag every changed line that no
+   task or FR justifies (unrelated refactoring, reformatting, renaming) and any code beyond what
+   the spec requires (extra features, options, abstractions). Each one is a `FAIL`.
 
 Table `FR | Covered by | Result` (`OK`, `FAIL`, `HUMAN REVIEW`).
 

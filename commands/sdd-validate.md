@@ -16,6 +16,10 @@ Read `specs/$1/spec.md`, `plan.md`, `tasks.md`, `docs/constitution.md` and `AGEN
 3. Check the completion criteria that do not need a person, and that no constitution principle
    is broken (including that no code or tests live outside the product folder).
 
+4. Check the code discipline (sdd skill): in `git diff`, flag every changed line that no task or
+   FR justifies (unrelated refactoring, reformatting, renaming) and any code beyond what the spec
+   requires (extra features, options, abstractions). Each one is a `FAIL`.
+
 Format: table `FR | Covered by | Result` (`OK`, `FAIL` or `HUMAN REVIEW`).
 
 **If anything fails in phase 1: stop here** with `VERDICT: FAILED` and a numbered list

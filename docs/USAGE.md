@@ -109,6 +109,18 @@ where you are.
 - Requirement change: spec → plan → tasks → code.
 - One task at a time; never move on with failing tests.
 
+**Code discipline** (in the `sdd` skill, so Claude Code, OpenCode and Codex all follow it)
+- *Don't assume*: if something is ambiguous or missing, the agent stops and asks.
+- *Minimum code*: the simplest code that makes the task's tests pass; no extra features,
+  options, abstractions or error handling.
+- *Touch only what you must*: no unrelated refactoring, reformatting or renaming. Anything else
+  the agent notices is reported, not fixed. Before finishing, it reads its own `git diff` and
+  reverts its own changes that the task does not justify.
+- *Success criteria*: the tests and the "Done when" of each task are known before coding.
+
+`/sdd-validate` enforces it: a changed line that no task or FR justifies, or code beyond what
+the spec requires, is a `FAIL` in phase 1.
+
 **Requirements in EARS** (one sentence = one verifiable behaviour):
 `WHEN <event>, THE SYSTEM SHALL <response>` · `IF <unwanted condition>, THEN THE SYSTEM SHALL <response>` ·
 `WHILE <state>, THE SYSTEM SHALL <response>` · `THE SYSTEM SHALL <permanent behaviour>`.
